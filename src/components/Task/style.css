@@ -1,0 +1,19 @@
+@import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css");
+.label
+{
+    background-color: lightgray;
+    margin-bottom: 20px;
+    margin-bottom: 20px;
+    border-radius: 3px;
+}
+.priority
+{
+    margin-bottom: 20px;
+    margin-bottom: 20px;
+
+}
+.file-thumb
+{
+    background-color:lightgray;
+    height: 80px;
+}

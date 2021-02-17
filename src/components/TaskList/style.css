@@ -1,0 +1,77 @@
+.list__card{
+    width: 20%;
+    border-radius: 4px;
+    background-color: lightgray;
+    margin: 20px 10px 10px 10px;
+
+}
+.list__card ul
+{
+    list-style-type: none; 
+}
+
+#card
+{
+    margin-top: 20px;
+    margin-right: 10px;
+    border-radius: 5px;
+    background-color:#DFDFDF;
+}
+.card__header
+{
+    margin: auto;
+    margin-top: 10px;
+}
+#card li
+{
+    margin-top: 4px;
+    margin-bottom: 4px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+.card__footer
+{
+    margin-top: 4px;
+    margin-bottom: 10px;
+    border: none;   
+    padding-top: 5px;
+    padding-bottom: 5px;
+
+}
+.card__footer:hover{
+    background-color: lightgray;
+}
+.card_footer span
+{
+    display: inline;
+    margin: 10px 5px 5px 5px;
+}
+.composer-buttons 
+{
+    margin-bottom: 10px;
+}
+.composer-buttons span
+{
+    display: inline;
+    padding: 5px 5px 10px 5px;
+
+}
+.add-task-button
+{
+    margin-top: 20px;
+    margin-right: 10px;
+    border-radius: 5px;
+    padding: 10px 5px 5px 5px;
+
+}
+.add-task-button span
+{
+    display: inline;
+    padding: 10px 5px 5px 5px;
+
+}
+.addlist-button:hover
+{
+    background-color: lightgray;
+
+}
