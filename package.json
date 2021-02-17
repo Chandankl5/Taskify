@@ -2,6 +2,9 @@
   "name": "work-zone",
   "version": "0.1.0",
   "private": true,
+  "engines": {
+    "node": "10.15.1"
+  },
   "dependencies": {
     "axios": "^0.21.1",
     "react": "^17.0.1",
