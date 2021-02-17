@@ -22,6 +22,7 @@ class TeamBoardComponent extends React.Component {
         axios({
             method:"GET",
             url:"https://flask-jwt-pro.herokuapp.com/team/"+this.props.match.params.team_ID+"",
+            withCredentials:true
         })
         .then((response)=>{
             // console.log(response.data.lists)
