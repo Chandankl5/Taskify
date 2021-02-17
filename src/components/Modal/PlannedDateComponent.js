@@ -7,7 +7,7 @@ function PlannedDate(props) {
     return (
         <div>
         <div><h6>PLANNED DATE</h6> </div>
-        <div>{props.plannedDate}</div>
+        <div className="w3-text-teal">{props.plannedDate}</div>
          </div>
 
          )

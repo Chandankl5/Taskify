@@ -116,10 +116,10 @@ class ModalComponent extends React.Component
                                             <option value="Completed">Completed</option>
                                         </select>
                                     </div>        
-                                    <div id="attachment">
+                                    {/* <div id="attachment">
                                         <h3><label htmlFor="Attachment">Attachment</label></h3>
                                         <input type="file" onChange={(e)=> this.props.setAttachment(e.target.files[0])}  />
-                                     </div>
+                                     </div> */}
 
                                     </div>
                             </div>

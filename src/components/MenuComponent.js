@@ -16,7 +16,7 @@ class MenuComponent extends React.Component {
 
     axios({
         method:"POST",
-        url:"https://flask-jwt-pro.herokuapp.com/team/"+this.props.team_ID+"/sort",
+        url:"https://flask-jwt-pro.herokuapp.com/team/"+this.props.teamID+"/sort",
         data:{"type":"priority"}
     })
     .then((response)=>{
@@ -35,7 +35,7 @@ class MenuComponent extends React.Component {
 
     axios({
         method:"POST",
-        url:"https://flask-jwt-pro.herokuapp.com/team/"+this.props.team_ID+"/sort",
+        url:"https://flask-jwt-pro.herokuapp.com/team/"+this.props.teamID+"/sort",
         data:{"type":"planneddate"}
     })
     .then((response)=>{
@@ -56,7 +56,7 @@ class MenuComponent extends React.Component {
 
       axios({
           method:"POST",
-          url:"https://flask-jwt-pro.herokuapp.com/team/"+this.props.team_ID+"/sort",
+          url:"https://flask-jwt-pro.herokuapp.com/team/"+this.props.teamID+"/sort",
           data:{"type":"assigne_id" ,"id":""},
           withCredentials:true
       })
@@ -68,7 +68,7 @@ class MenuComponent extends React.Component {
 
     axios({
         method:"GET",
-        url:"https://flask-jwt-pro.herokuapp.com/team/"+this.props.team_ID+"",
+        url:"https://flask-jwt-pro.herokuapp.com/team/"+this.props.teamID+"",
     })
     .then((response)=>{
         console.log(response)
@@ -113,7 +113,7 @@ class MenuComponent extends React.Component {
             <li className="nav-item  " style={{border:"2px solid white" ,borderRadius:"8px", marginLeft:"8px" ,marginRight:"8px"}}>
               <a className=" nav-link w3-text-white " href="#"> { this.props.TeamData.name}</a>
             </li>
-            <li className="nav-item nav-list w3-white" style={list_style}>
+            <li className="nav-item nav-list w3-white " style={list_style}>
               <button onClick={this.sortByUser}  className={user_btn_class} href="#"> Only my tasks</button>
             </li>
             <li className="nav-item nav-list w3-white " style={list_style}>

@@ -21,8 +21,8 @@ class TaskListComponent extends React.Component
 
         axios({
             method:"POST",
-            url:"https://flask-jwt-pro.herokuapp.com/createtask/"+this.props.teamID+"",
-            data:{reporter_id:"2", status:this.props.title,title:this.state.composeTitle,priority:"Normal"},
+            url:"https://flask-jwt-pro.herokuapp.com/admin/createtask/"+this.props.teamID+"",
+            data:{status:this.props.title,title:this.state.composeTitle,priority:"Normal"},
             withCredentials:true
         })
         .then((response)=>{
