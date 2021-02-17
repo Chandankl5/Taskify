@@ -55,8 +55,9 @@ class ModalComponent extends React.Component
         data[parameter]=value
         axios({
             method:"PUT",
-            url:"https://flask-jwt-pro.herokuapp.com/admin/task/"+this.props.info.id+"",
-            data:data
+            url:"https://flask-jwt-pro.herokuapp.com/task/"+this.props.info.id+"",
+            data:data,
+            withCredentials:true
         })
         .then((response)=>{
             console.log(response)

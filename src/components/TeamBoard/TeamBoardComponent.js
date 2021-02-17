@@ -84,13 +84,13 @@ class TeamBoardComponent extends React.Component {
         return (
 
             <div>
-                <NavbarComponent/>
-                <MenuComponent/>
+                <NavbarComponent teamID={this.props.match.params.team_ID}/>
+                <MenuComponent teamID={this.props.match.params.team_ID}/>
             <div className="container-fluid">
                 <div className="row">
-                    <TaskListComponent title="Todo" tasks={TodoTasks} key={1} teamID={this.props.TeamData.id} />
-                    <TaskListComponent title="InProgress" tasks={InProgressTasks} key={2} teamID={this.props.TeamData.id} />
-                    <TaskListComponent title="Completed" tasks={CompletedTasks} key={3} teamID={this.props.TeamData.id} />
+                    <TaskListComponent title="Todo" tasks={TodoTasks} key={1} teamID={this.props.match.params.team_ID} />
+                    <TaskListComponent title="InProgress" tasks={InProgressTasks} key={2} teamID={this.props.match.params.team_ID} />
+                    <TaskListComponent title="Completed" tasks={CompletedTasks} key={3} teamID={this.props.match.params.team_ID} />
                     {/* {listComposer} */}
                 </div>
              </div>

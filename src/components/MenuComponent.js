@@ -16,7 +16,7 @@ class MenuComponent extends React.Component {
 
     axios({
         method:"POST",
-        url:"https://flask-jwt-pro.herokuapp.com/admin/team/"+this.props.TeamData.id+"/sort",
+        url:"https://flask-jwt-pro.herokuapp.com/team/"+this.props.team_ID+"/sort",
         data:{"type":"priority"}
     })
     .then((response)=>{
@@ -35,7 +35,7 @@ class MenuComponent extends React.Component {
 
     axios({
         method:"POST",
-        url:"https://flask-jwt-pro.herokuapp.com/admin/team/"+this.props.TeamData.id+"/sort",
+        url:"https://flask-jwt-pro.herokuapp.com/team/"+this.props.team_ID+"/sort",
         data:{"type":"planneddate"}
     })
     .then((response)=>{
@@ -56,8 +56,9 @@ class MenuComponent extends React.Component {
 
       axios({
           method:"POST",
-          url:"https://flask-jwt-pro.herokuapp.com/admin/team/"+this.props.TeamData.id+"/sort",
-          data:{"type":"assigne_id" ,"id":""}
+          url:"https://flask-jwt-pro.herokuapp.com/team/"+this.props.team_ID+"/sort",
+          data:{"type":"assigne_id" ,"id":""},
+          withCredentials:true
       })
   }
 
@@ -67,7 +68,7 @@ class MenuComponent extends React.Component {
 
     axios({
         method:"GET",
-        url:"https://flask-jwt-pro.herokuapp.com/admin/team/"+this.props.TeamData.id+"",
+        url:"https://flask-jwt-pro.herokuapp.com/team/"+this.props.team_ID+"",
     })
     .then((response)=>{
         console.log(response)

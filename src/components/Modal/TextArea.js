@@ -12,8 +12,9 @@ import axios from 'axios'
 
         axios({
             method:"PUT",
-            url:"https://flask-jwt-pro.herokuapp.com/admin/task/"+props.id+"",
-            data:data
+            url:"https://flask-jwt-pro.herokuapp.com/task/"+props.id+"",
+            data:data,
+            withCredentials:true
         })
         .then((response)=>{
             console.log(response)
