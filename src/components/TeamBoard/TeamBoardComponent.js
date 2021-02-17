@@ -2,6 +2,7 @@ import React from 'react'
 import axios from 'axios'
 import {connect} from 'react-redux'
 import TaskListComponent from '../TaskList/TaskListComponent.js'
+import NavbarComponent from '../Navbar/NavbarComponent.js'
 import MenuComponent from '../MenuComponent.js'
 import './style.css'
 
@@ -10,16 +11,17 @@ import TeamDataBuilder from '../../Shared/TeamDataBuilder.js'
 import { setTeamBoardData } from '../../Actions/TeamBoardAction.js'
 
 class TeamBoardComponent extends React.Component {
-    constructor() {
-        super()
+    constructor(props) {
+        super(props)
         this.state = {  listCompose:false ,listTitle:"" ,isListEmty:false}
+        console.log(this.props.match.params.team_ID)
     }
 
     componentDidMount=()=>{
         
         axios({
             method:"GET",
-            url:"https://flask-jwt-pro.herokuapp.com/admin/team/1",
+            url:"https://flask-jwt-pro.herokuapp.com/team/"+this.props.match.params.team_ID+"",
         })
         .then((response)=>{
             // console.log(response.data.lists)
@@ -81,6 +83,7 @@ class TeamBoardComponent extends React.Component {
         return (
 
             <div>
+                <NavbarComponent/>
                 <MenuComponent/>
             <div className="container-fluid">
                 <div className="row">
