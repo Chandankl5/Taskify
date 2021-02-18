@@ -18,7 +18,6 @@ const TeamDataBuilder=(lists)=>{
             Tasks.push(Task)
         })
 
-        // Lists.push(new List(name,Tasks))
         
     })
 
@@ -26,7 +25,5 @@ const TeamDataBuilder=(lists)=>{
 }
 
 
-// var ob= new UpdateTeamData([{name:"todo",Tasks:[{name:"task1", priority:"High"}]}])
-// console.log(ob.update("todo","task1","priority","Low"))
 
 export default TeamDataBuilder

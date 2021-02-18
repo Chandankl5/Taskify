@@ -11,11 +11,6 @@ const TeamBoard=(state=initialState,action)=>{
             TeamData:action.payload
         }
 
-        // case 'setTeamBoardSortedData':
-        //     return {
-        //         ...state,
-        //         TeamSortedData:action.payload
-        //     }
 
         case 'composeCard':
             const obj=new TeamDataUpdater(state.TeamData.Tasks)

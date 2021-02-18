@@ -40,7 +40,6 @@ class TeamBoardComponent extends React.Component {
     }
     composeList=()=>
     {
-        // this.state.lists.push({title:this.state.listTitle,tasks:[]})
         this.setState({listCompose:false})
 
     }
@@ -79,13 +78,12 @@ class TeamBoardComponent extends React.Component {
     }  
 
 
-        // let lists= (this.props.TeamsData.Tasks) ?(   ) :(null)
              
         return (
 
             <div>
                 <NavbarComponent teamID={this.props.match.params.team_ID}/>
-                <MenuComponent teamID={this.props.match.params.team_ID}/>
+                <MenuComponent userID={this.props.match.params.user_ID} teamID={this.props.match.params.team_ID}/>
             <div className="container-fluid">
                 <div className="row">
                     <TaskListComponent title="Todo" tasks={TodoTasks} key={1} teamID={this.props.match.params.team_ID} />
@@ -111,4 +109,3 @@ const mapDispatchToProps=(dispatch)=>{
     }
 }
 export default connect(mapStateToProps,mapDispatchToProps)(TeamBoardComponent)
-// export default TeamBoardComponent

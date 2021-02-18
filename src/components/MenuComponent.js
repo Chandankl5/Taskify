@@ -17,7 +17,8 @@ class MenuComponent extends React.Component {
     axios({
         method:"POST",
         url:"https://flask-jwt-pro.herokuapp.com/team/"+this.props.teamID+"/sort",
-        data:{"type":"priority"}
+        data:{"type":"priority"},
+        withCredentials:true
     })
     .then((response)=>{
         const {id,description,lists,members}=response.data
@@ -36,7 +37,8 @@ class MenuComponent extends React.Component {
     axios({
         method:"POST",
         url:"https://flask-jwt-pro.herokuapp.com/team/"+this.props.teamID+"/sort",
-        data:{"type":"planneddate"}
+        data:{"type":"planneddate"},
+        withCredentials:true
     })
     .then((response)=>{
         console.log(response)
@@ -57,8 +59,17 @@ class MenuComponent extends React.Component {
       axios({
           method:"POST",
           url:"https://flask-jwt-pro.herokuapp.com/team/"+this.props.teamID+"/sort",
-          data:{"type":"assigne_id" ,"id":""},
+          data:{"type":"assigne_id" ,"id":""+this.props.userID+""},
           withCredentials:true
+      }).then((response)=>{
+        console.log(response.data)
+        
+        const {id,description,lists,members}=response.data
+        let Tasks=TeamDataBuilder(lists)
+        this.props.setTeamBoardData({id:id,name:description,Tasks:Tasks,members:members })
+      })
+      .catch((err)=>{
+
       })
   }
 
@@ -69,6 +80,7 @@ class MenuComponent extends React.Component {
     axios({
         method:"GET",
         url:"https://flask-jwt-pro.herokuapp.com/team/"+this.props.teamID+"",
+        withCredentials:true
     })
     .then((response)=>{
         console.log(response)
@@ -114,7 +126,7 @@ class MenuComponent extends React.Component {
               <a className=" nav-link w3-text-white " href="#"> { this.props.TeamData.name}</a>
             </li>
             <li className="nav-item nav-list w3-white " style={list_style}>
-              <button onClick={this.sortByUser}  className={user_btn_class} href="#"> Only my tasks</button>
+              <button onClick={this.sortByUser}  className={user_btn_class} href="#"> Only my Tasks</button>
             </li>
             <li className="nav-item nav-list w3-white " style={list_style}>
               <button onClick={this.sortByPriority } className={priority_btn_class}  href="#"> Sort By Priority</button>

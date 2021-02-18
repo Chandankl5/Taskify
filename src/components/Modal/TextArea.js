@@ -2,6 +2,7 @@ import React, { useState ,useCallback} from 'react'
 import axios from 'axios'
 
  function TextArea(props) {
+    const[content,setContent]=useState("")
 
      const onTitleChange= useCallback(()=>{
         let data={}
@@ -24,7 +25,6 @@ import axios from 'axios'
         })
 
      })
-     const[content,setContent]=useState("")
 
         return (
         <div>

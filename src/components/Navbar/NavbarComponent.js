@@ -1,6 +1,7 @@
 import axios from 'axios'
 import React from 'react'
-import styles from './style.module.css'
+import {withRouter} from 'react-router-dom'
+// import styles from './style.module.css'
 class NavbarComponent extends React.Component {
   constructor(props) {
     super(props)
@@ -8,7 +9,19 @@ class NavbarComponent extends React.Component {
   }
 
   logout=()=>{
+
+    axios({
+      method:"POST",
+      url:"https://flask-jwt-pro.herokuapp.com/logout",
+      withCredentials:true
+    })
+    .then((response)=>{
+      console.log(response)
     
+    })
+    .catch((err)=>{
+      console.log(err)
+    })
   }
   render() {
 
@@ -18,7 +31,7 @@ class NavbarComponent extends React.Component {
     }
 
     return (
-      <nav className="navbar navbar-expand-md  ">
+      <nav className="navbar navbar-expand-md sticky-top ">
         <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
           <span className="navbar-toggler-icon"></span>
         </button>
@@ -32,19 +45,15 @@ class NavbarComponent extends React.Component {
               <a className="nav-link" href="#"><i className="fa fa-columns fa-lg" aria-hidden="true"></i></a>
             </li>
           </ul>
-          {/* <ul className="navbar-nav">
-            <li className="nav-item nav-list">
-            <button className="nav-link" href="#">Only my Tasks</button>
-            </li>
-          </ul> */}
           <ul className="navbar-nav logo mr-auto navbar-dark">
             <a className="navbar-brand" href="#">Taskify</a>
           </ul>
+
           <ul className="navbar-nav">
             <li className="nav-item dropdown nav-list-profile">
-              <a className="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown"><i className="fa fa-user-circle"></i></a>
+              <a className="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown"><i className="fa fa-user-circle" style={{fontSize:"2.2rem"}}></i></a>
               <div className="dropdown-menu">
-                <a className="dropdown-item" onClick={this.logout}>Logout</a>
+                <a className="dropdown-item" href="https://taskify-initial.herokuapp.com/login" onClick={this.logout}>Logout</a>
               </div>
             </li>
           </ul>
@@ -55,4 +64,4 @@ class NavbarComponent extends React.Component {
     )
   }
 }
-export default NavbarComponent
+export default withRouter(NavbarComponent)

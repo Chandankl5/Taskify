@@ -12,19 +12,6 @@ class Description extends React.Component
         this.state={  updateContent:props.updateContent}
     }   
 
-    // static getDerivedStateFromProps(props,state)
-    // {
-    //     return {updateContent:props.updateContent}
-    // }
-
-    // shouldComponentUpdate()
-    // {
-    //     if(this.props.isContentSet)
-    //     return true
-
-    //     return false
-        
-    // }
 
 
     updateContent=(value)=>{

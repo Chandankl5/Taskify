@@ -9,15 +9,13 @@ const AutoCompleteComponent = (props) => {
 
   const [selected, setSelected] = useState([]);
   
-  // console.log(props.assigneeName)
   const dispatch=useDispatch()
 
-    // let data=["virat","rohith" ,"rohith" ,"rohith" ,"rohith" ,"rohith" ,"rohith" ,"rohith" ,"rohith" ,"rohith" ,"rohith" ,"rohith","chandan" ]
 
     const onAssigneeChange=useCallback((e)=>{
 
       setSelected(e)
-      if(e.length!=0){
+      if(e.length!==0){
         dispatch(setAssignee({taskName:props.taskName,parameter:"assignee",value:e}))
 
       let data={}
