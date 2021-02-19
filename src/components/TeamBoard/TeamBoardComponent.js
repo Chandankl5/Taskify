@@ -14,14 +14,15 @@ class TeamBoardComponent extends React.Component {
     constructor(props) {
         super(props)
         this.state = {  listCompose:false ,listTitle:"" ,isListEmty:false}
-        console.log(this.props.match.params.team_ID)
     }
 
     componentDidMount=()=>{
         
         axios({
             method:"GET",
-            url:"https://flask-jwt-pro.herokuapp.com/team/"+this.props.match.params.team_ID+"",
+            // url:"https://flask-jwt-pro.herokuapp.com/team/"+this.props.match.params.team_ID+"",
+            url:"https://flask-jwt-pro.herokuapp.com/team/1",
+
             withCredentials:true
         })
         .then((response)=>{

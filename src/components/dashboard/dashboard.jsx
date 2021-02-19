@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom'
+import { Link ,withRouter} from 'react-router-dom'
 import axios from 'axios';
 import './dashstyle.css';
 // import NavbarComponent from '../navbar/NavbarComponent';
 
-export default class Dashboard extends React.Component {
+ class Dashboard extends React.Component {
     constructor(props) {
         super(props)
         this.state = {teams: []}
@@ -20,17 +20,16 @@ export default class Dashboard extends React.Component {
         }).then(res => {
             this.setState({teams:[...res.data]})
             console.log(res.data);
-
+                
           }).catch(err => {
-              this.props.history.push('/login')
           })
     }
 
     render() {
         const { teams } = this.state;
-        let url = "https://taskifywebapp.herokuapp.com/"
+        let url = "https://taskifywebapp.herokuapp.com/user/board"
         const card = teams.map(team => 
-            <a key={team.name} href = {url +"user/"+ this.props.match.params.user_id + "/team/" + team.id}>
+            <a key={team.name} href={url}>
                 <div className="card card-item">
                     <div className="card-title">
                         <h5>{team.name}</h5>
@@ -54,3 +53,6 @@ export default class Dashboard extends React.Component {
         );
     }
 }
+
+
+export default Dashboard

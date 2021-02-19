@@ -1,9 +1,10 @@
 import React from 'react';
 import loginSVG from '../../login.svg';
 import axios from 'axios';
-import { Redirect } from 'react-router-dom';
+import { Redirect  ,withRouter} from 'react-router-dom';
+import "../login/style.css"
 
-export class Login extends React.Component {
+ class Login extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -36,7 +37,7 @@ export class Login extends React.Component {
             // this.setState({redirect: true});
             
             // this.props.setIsUserLogin(true);
-            this.props.history.push('/dashboard/' + response.data.id + '')
+            this.props.history.push('/user/dashboard')
         }).catch( err => {
             console.log(err.message);
             // this.setState({redirect: false})
@@ -52,9 +53,9 @@ export class Login extends React.Component {
 
         return (
             <div className="base-container" ref={ this.props.containerRef }>
-                <div className="header">Login</div>
-                <div className="content">
+                <div className="content" style={{marginTop:"30px"}}>
                     <div className="image">
+                    <div className="header w3-center">Login</div>
                         <img src={loginSVG} alt=""/>
                     </div>
                     <form className="form" onSubmit={(e) => this.submit(e)}>
@@ -75,3 +76,6 @@ export class Login extends React.Component {
         );
     }
 }
+
+
+export default withRouter(Login)

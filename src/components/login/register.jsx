@@ -2,6 +2,7 @@ import React from 'react';
 import loginSVG from '../../login.svg';
 import axios from 'axios';
 import { Redirect } from 'react-router-dom';
+import "../login/style.css"
 
 export class Register extends React.Component {
     constructor(props) {
@@ -42,6 +43,7 @@ export class Register extends React.Component {
                 // headers: {'Content-Type': 'application/json'},
                 data: formdata
             }).then(response => {
+                this.props.setHasUserRegistered(true)
                 this.props.history.push('/login')
             }).catch(err => {
                 alert("username already exists")
