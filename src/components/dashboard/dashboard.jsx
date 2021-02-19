@@ -42,7 +42,7 @@ import './dashstyle.css';
             <div>
                 {/* <NavbarComponent /> */}
                 <div className="dashboard">
-                    <h2 style={{color: "whitesmoke"}}>Teams</h2>
+                    <h2 style={{color: "whitesmoke"}}>Teamss</h2>
                     <div className="container cardList">
                         {card}
                     </div>

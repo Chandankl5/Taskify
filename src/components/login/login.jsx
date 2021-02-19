@@ -12,7 +12,6 @@ import "../login/style.css"
             password: '',
             user_id: ''
         }
-        console.log(props);
     }
 
     submit(e) {
