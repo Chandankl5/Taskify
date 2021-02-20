@@ -5,6 +5,7 @@ import TaskListComponent from '../TaskList/TaskListComponent.js'
 import NavbarComponent from '../Navbar/NavbarComponent.js'
 import MenuComponent from '../MenuComponent.js'
 import './style.css'
+import Cookies from 'js-cookie'
 
 import TeamDataBuilder from '../../Shared/TeamDataBuilder.js'
 
@@ -13,15 +14,15 @@ import { setTeamBoardData } from '../../Actions/TeamBoardAction.js'
 class TeamBoardComponent extends React.Component {
     constructor(props) {
         super(props)
-        this.state = {  listCompose:false ,listTitle:"" ,isListEmty:false}
+        this.state = {  listCompose:false ,listTitle:"" ,isListEmty:false , team_ID:Cookies.get('teamID') ,user_ID:Cookies.get('userID') ,teamName:Cookies.get('teamName')}
     }
 
     componentDidMount=()=>{
         
         axios({
             method:"GET",
-            // url:"https://flask-jwt-pro.herokuapp.com/team/"+this.props.match.params.team_ID+"",
-            url:"https://flask-jwt-pro.herokuapp.com/team/1",
+            url:"https://flask-jwt-pro.herokuapp.com/team/"+this.state.team_ID+"",
+            // url:"https://flask-jwt-pro.herokuapp.com/team/1",
 
             withCredentials:true
         })
@@ -83,13 +84,13 @@ class TeamBoardComponent extends React.Component {
         return (
 
             <div>
-                <NavbarComponent teamID={this.props.match.params.team_ID}/>
-                <MenuComponent userID={this.props.match.params.user_ID} teamID={this.props.match.params.team_ID}/>
+                <NavbarComponent teamID={this.state.team_ID}/>
+                <MenuComponent userID={this.state.user_ID} teamID={this.state.team_ID} teamName={this.state.teamName}/>
             <div className="container-fluid">
                 <div className="row">
-                    <TaskListComponent title="Todo" tasks={TodoTasks} key={1} teamID={this.props.match.params.team_ID} />
-                    <TaskListComponent title="InProgress" tasks={InProgressTasks} key={2} teamID={this.props.match.params.team_ID} />
-                    <TaskListComponent title="Completed" tasks={CompletedTasks} key={3} teamID={this.props.match.params.team_ID} />
+                    <TaskListComponent title="Todo" tasks={TodoTasks} key={1} teamID={this.state.team_ID} />
+                    <TaskListComponent title="InProgress" tasks={InProgressTasks} key={2} teamID={this.state.team_ID} />
+                    <TaskListComponent title="Completed" tasks={CompletedTasks} key={3} teamID={this.state.team_ID} />
                     {/* {listComposer} */}
                 </div>
              </div>

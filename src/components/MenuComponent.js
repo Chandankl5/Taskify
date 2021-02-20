@@ -123,7 +123,7 @@ class MenuComponent extends React.Component {
             <div className="">
           <ul className="navbar-nav">
             <li className="nav-item  " style={{border:"2px solid white" ,borderRadius:"8px", marginLeft:"8px" ,marginRight:"8px"}}>
-              <a className=" nav-link w3-text-white " href="#"> { this.props.TeamData.name}</a>
+              <a className=" nav-link w3-text-white " href="#"> { this.props.teamName}</a>
             </li>
             <li className="nav-item nav-list w3-white " style={list_style}>
               <button onClick={this.sortByUser}  className={user_btn_class} href="#"> Only my Tasks</button>

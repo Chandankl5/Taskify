@@ -1,11 +1,13 @@
 import axios from 'axios'
 import React from 'react'
-import {withRouter} from 'react-router-dom'
-// import styles from './style.module.css'
+import {Redirect, withRouter} from 'react-router-dom'
+import styles from './style.module.css'
+import Cookies from 'js-cookie'
 class NavbarComponent extends React.Component {
   constructor(props) {
     super(props)
     this.state={}
+    console.log(styles)
   }
 
   logout=()=>{
@@ -17,7 +19,8 @@ class NavbarComponent extends React.Component {
     })
     .then((response)=>{
       console.log(response)
-    
+      Cookies.remove('userID')
+      this.props.history.push('/logout')
     })
     .catch((err)=>{
       console.log(err)
@@ -45,7 +48,7 @@ class NavbarComponent extends React.Component {
               <a className="nav-link" href="#"><i className="fa fa-columns fa-lg" aria-hidden="true"></i></a>
             </li>
           </ul>
-          <ul className="navbar-nav logo mr-auto navbar-dark">
+          <ul className="navbar-nav logo mr-auto navbar-dark "  >
             <a className="navbar-brand" href="#">Taskify</a>
           </ul>
 
@@ -53,7 +56,7 @@ class NavbarComponent extends React.Component {
             <li className="nav-item dropdown nav-list-profile">
               <a className="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown"><i className="fa fa-user-circle" style={{fontSize:"2.2rem"}}></i></a>
               <div className="dropdown-menu">
-                <a className="dropdown-item" href="https://taskify-initial.herokuapp.com/login" onClick={this.logout}>Logout</a>
+                <a className="dropdown-item"  onClick={this.logout}>Logout</a>
               </div>
             </li>
           </ul>

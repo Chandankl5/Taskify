@@ -3,19 +3,22 @@ import { Link ,withRouter} from 'react-router-dom'
 import axios from 'axios';
 import './dashstyle.css';
 // import NavbarComponent from '../navbar/NavbarComponent';
+import Cookies from 'js-cookie'
 
  class Dashboard extends React.Component {
     constructor(props) {
         super(props)
         this.state = {teams: []}
         // console.log(props.match.params.user_id);
+        // Cookies.set('name','chandan')
     }
     // {"name": "team1"},{"name": "team2"},{"name": "team3"},{"name": "team3"},{"name": "team4"}
     componentDidMount() {
+        console.log('ye')
         axios({
             method: 'GET',
             url:'https://flask-jwt-pro.herokuapp.com/teams',
-            withCredentials: true,
+                withCredentials: true,
             headers: {'Content-Type': 'application/json'}
         }).then(res => {
             this.setState({teams:[...res.data]})
@@ -27,22 +30,25 @@ import './dashstyle.css';
 
     render() {
         const { teams } = this.state;
-        let url = "https://taskifywebapp.herokuapp.com/user/board"
         const card = teams.map(team => 
-            <a key={team.name} href={url}>
+            <div key={team.name}  onClick={()=> {  Cookies.remove('teamID') 
+            Cookies.remove('teamName')
+            Cookies.set('teamID',''+team.id+'')     
+            Cookies.set('teamName',''+team.name+'')
+             this.props.history.push('/user/board')} }  >
                 <div className="card card-item">
                     <div className="card-title">
                         <h5>{team.name}</h5>
                     </div>
                 </div>
-            </a>
+            </div>
         )
 
         return (
             <div>
                 {/* <NavbarComponent /> */}
                 <div className="dashboard">
-                    <h2 style={{color: "whitesmoke"}}>Teamss</h2>
+                    <h2 style={{color: "whitesmoke"}}>Teams</h2>
                     <div className="container cardList">
                         {card}
                     </div>
@@ -55,4 +61,4 @@ import './dashstyle.css';
 }
 
 
-export default Dashboard
+export default withRouter(Dashboard)

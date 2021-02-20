@@ -2,7 +2,9 @@ import React from 'react';
 import loginSVG from '../../login.svg';
 import axios from 'axios';
 import { Redirect  ,withRouter} from 'react-router-dom';
-import "../login/style.css"
+import "../login/style.module.css"
+import Cookies from 'js-cookie'
+
 
  class Login extends React.Component {
     constructor(props) {
@@ -31,11 +33,8 @@ import "../login/style.css"
             headers: {'Content-Type': 'application/json'},
             data: formdata
         }).then(response =>  {
-            this.setState({user_id: response.data.id})
             console.log(JSON.stringify(response.data));
-            // this.setState({redirect: true});
-            
-            // this.props.setIsUserLogin(true);
+            Cookies.set('userID',''+response.data.id+'')
             this.props.history.push('/user/dashboard')
         }).catch( err => {
             console.log(err.message);
@@ -46,12 +45,8 @@ import "../login/style.css"
 
     render() {
 
-        // if(this.state.redirect) {
-        //     return <Redirect to='/dashboard' user_id={this.state.user_id} />
-        // }
-
         return (
-            <div className="base-container" ref={ this.props.containerRef }>
+            <div className="base-container " ref={ this.props.containerRef }>
                 <div className="content" style={{marginTop:"30px"}}>
                     <div className="image">
                     <div className="header w3-center">Login</div>

@@ -2,7 +2,7 @@ import React from 'react';
 import loginSVG from '../../login.svg';
 import axios from 'axios';
 import { Redirect } from 'react-router-dom';
-import "../login/style.css"
+import "../login/style.module.css"
 
 export class Register extends React.Component {
     constructor(props) {
@@ -26,12 +26,11 @@ export class Register extends React.Component {
         
             e.preventDefault();
             const { name, password, phone } = this.state;
-            
             let formdata = new FormData()
             formdata.append('name', name)
             formdata.append('password', password)
             formdata.append('phone', phone)
-            formdata.append('invite_id', this.props.match.params.invite_id)
+            formdata.append('invite_id', this.props.match.params.inviteID)
 
             // console.log({ name, password, phone });
 
