@@ -40,14 +40,14 @@ class NavbarComponent extends React.Component {
         </button>
 
         <div className="collapse navbar-collapse" id="collapsibleNavbar">
-          <ul className="navbar-nav">
+          {/* <ul className="navbar-nav">
             <li className="nav-item nav-list" style={list_style}>
               <a className="nav-link" href="#"><i className="fa fa-home fa-lg" aria-hidden="true"></i></a>
             </li>
             <li className="nav-item nav-list" style={list_style}>
               <a className="nav-link" href="#"><i className="fa fa-columns fa-lg" aria-hidden="true"></i></a>
             </li>
-          </ul>
+          </ul> */}
           <ul className="navbar-nav logo mr-auto navbar-dark "  >
             <a className="navbar-brand" href="#">Taskify</a>
           </ul>

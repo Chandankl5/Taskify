@@ -86,14 +86,23 @@ class ModalComponent extends React.Component
                             <div className="row">
                                 <div className="col-md-8">
                                     <PlannedDate plannedDate={plannedDate} />
+
                                     <Priority  priority={priority}/>
                                     {/* <Status status={status}/> */}
+
                                     <Description id={id} taskName={name} DescriptionContent={description} isContentSet={isDescriptionContentSet} updateContent={updateContent} />
+
+                                    <div className="">
+                                         <h3><label htmlFor="reporter">Reporter</label></h3>
+                                         <input type="text" className="form-control" readOnly value="Chandan" />
+                                     </div>
+
                                     <div id="assignee">    
                                     <h3><label htmlFor="assignee">Assignee</label></h3>                        
                                     <AutoCompleteComponent id={id} taskName={name} assigneeName={assignee} members={this.props.members}/>
-                                     </div>   
-                                     <Attachments files={this.state.files} />  
+                                     </div>  
+                                      
+                                     {/* <Attachments files={this.state.files} />   */}
                                 </div>
                                 <div className="col-md-4">
                                     <div className="priority" >

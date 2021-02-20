@@ -33,8 +33,8 @@ class App extends Component {
     return (
         <BrowserRouter>
           {/* <Redirect to="/user/dashboard" />: <Login setUserID={this.setUserID}  setIsUserLoggedIn ={ this.setIsUserLoggedIn} hasUserRegistered={this.state.hasUserRegistered}/> }/> */}
-          <Route path="*" render={()=> <Routes/> } />
           {/* <Route path="/user/dashboard"  component={Dashboard} /> */}
+          <Route path="*" render={()=> <Routes/> } />
 
         
         </BrowserRouter>

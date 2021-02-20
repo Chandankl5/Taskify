@@ -19,7 +19,7 @@ class Routes extends Component{
         const isUserLoggedIn=Cookies.get('userID')
         console.log(isUserLoggedIn)
         return(
-            <BrowserRouter>
+            <Switch>
             {
                 isUserLoggedIn ? 
                 <Switch>
@@ -38,7 +38,7 @@ class Routes extends Component{
                 </Switch>    
                  }
 
-                 </BrowserRouter>
+                 </Switch>
         
         )
 

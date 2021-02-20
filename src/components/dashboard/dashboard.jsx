@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Link ,withRouter} from 'react-router-dom'
 import axios from 'axios';
 import './dashstyle.css';
-// import NavbarComponent from '../navbar/NavbarComponent';
+import NavbarComponent from '../Navbar/NavbarComponent.js'
 import Cookies from 'js-cookie'
 
  class Dashboard extends React.Component {
@@ -46,7 +46,7 @@ import Cookies from 'js-cookie'
 
         return (
             <div>
-                {/* <NavbarComponent /> */}
+                <NavbarComponent />
                 <div className="dashboard">
                     <h2 style={{color: "whitesmoke"}}>Teams</h2>
                     <div className="container cardList">
