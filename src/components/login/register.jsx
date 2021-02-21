@@ -13,7 +13,8 @@ export class Register extends React.Component {
             name: '',
             password: '',
             cpassword: '',
-            phone: ''
+            phone: '',
+            message: ''
         }
        
     }
@@ -42,10 +43,31 @@ export class Register extends React.Component {
                 // headers: {'Content-Type': 'application/json'},
                 data: formdata
             }).then(response => {
+                // console.log(response);
                 this.props.setHasUserRegistered(true)
-                this.props.history.push('/login')
-            }).catch(err => {
-                alert("username already exists")
+                this.props.history.push('/login',{state: {"message": "Successfully Registered"}})
+                //     pathname: '/login',
+                //     state: { "detail": "You succesfully registered!!"}
+                // })
+            }).catch((error) => {
+                if(error.response.status === 500) {
+                    this.setState({
+                        message: 
+                        (<div className="alert alert-danger alert-dismissible fade show">
+                            <button type="button" className="close" data-dismiss="alert">&times;</button>
+                            <strong>Oops, You are not invited</strong> 
+                        </div>)
+                    })
+                }
+                if(error.response.status === 409) {
+                    this.setState({
+                        message: 
+                        (<div className="alert alert-danger alert-dismissible fade show">
+                            <button type="button" className="close" data-dismiss="alert">&times;</button>
+                            <strong>Username already exists</strong> 
+                        </div>)
+                    })
+                }
             })
     }
 
@@ -64,7 +86,7 @@ export class Register extends React.Component {
         if (e.target.value.length === 0) {
             this.setState({password: ''})
             this.setState({strength: <p>Type Password</p>})
-        } else if (false == enoughRegex.test(e.target.value)) {
+        } else if (false === enoughRegex.test(e.target.value)) {
             this.setState({password: <p style={{color: "red"}}>Weak!</p>})
             this.setState({strength: <p>More Characters</p>})
         } else if (strongRegex.test(e.target.value)) {
@@ -96,29 +118,30 @@ export class Register extends React.Component {
 
         return (
             <div className="base-container" ref={ this.props.containerRef }>
-                <div className="header">Register</div>
                 <div className="content shadow p-3 bg-body rounded">
+                    {this.state.message}
                     <div className="image">
+                        <div className="header w3-center">Register</div>
                         <img src={ loginSVG } alt="ligin for Trackr"/>
                     </div>
                     <form className="form" onSubmit={(e) => this.submit(e)}>
                         <div className="form-group">
                             <label htmlFor="username">Username</label>
-                            <input type="text" placeholder="Username" onChange={e => this.setState({name: e.target.value.toString()})} required/>
+                            <input type="text" className="input_class" placeholder="Username" onChange={e => this.setState({name: e.target.value.toString()})} required/>
                         </div>
                         <div className="form-group">
                             <label htmlFor="password">Password</label>
-                            <input type="password" placeholder="Password" onChange={e => this.passwordChanged(e)} required/>
+                            <input type="password" className="input_class" placeholder="Password" onChange={e => this.passwordChanged(e)} required/>
                             {this.state.strength}
                         </div>
                         <div className="form-group">
                             <label htmlFor="cpassword">Confirm Password</label>
-                            <input type="password" placeholder="Confirm Password" onChange={e => this.passwordMatch(e)} required/>
+                            <input type="password" className="input_class" placeholder="Confirm Password" onChange={e => this.passwordMatch(e)} required/>
                             {this.state.passMatch}
                         </div>
                         <div className="form-group">
                             <label htmlFor="phone">Phone Number</label>
-                            <input type="tel" placeholder="Phone Number" onChange={e => this.setState({phone: e.target.value.toString()})} required/>
+                            <input type="tel" className="input_class" placeholder="Phone Number" onChange={e => this.setState({phone: e.target.value.toString()})} required/>
                         </div>
                         <div className="form-group">
                             <button type="submit" className="btn btn-primary">Register</button>
