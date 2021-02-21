@@ -44,11 +44,13 @@ export class Register extends React.Component {
                 // headers: {'Content-Type': 'application/json'},
                 data: formdata
             }).then(response => {
-                // console.log(response);
-                this.props.setHasUserRegistered(true)
+                console.log(response);
+                // this.props.setHasUserRegistered(true)
+                Cookies.set('isRegister',true)
+
                 this.props.history.push('/login')
-                Cookies.set('isRegister', 'true')
             }).catch((error) => {
+                console.log(error)
                 if(error.response.status === 500) {
                     this.setState({
                         message: 
