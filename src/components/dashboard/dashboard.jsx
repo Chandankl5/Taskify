@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link ,withRouter} from 'react-router-dom'
 import axios from 'axios';
-import './dashstyle.css';
+import './dashstyle.module.css';
 import NavbarComponent from '../Navbar/NavbarComponent.js'
 import Cookies from 'js-cookie'
 
@@ -14,7 +14,7 @@ import Cookies from 'js-cookie'
     }
     // {"name": "team1"},{"name": "team2"},{"name": "team3"},{"name": "team3"},{"name": "team4"}
     componentDidMount() {
-        console.log('ye')
+        // console.log('ye')
         axios({
             method: 'GET',
             url:'https://flask-jwt-pro.herokuapp.com/teams',
@@ -22,7 +22,7 @@ import Cookies from 'js-cookie'
             headers: {'Content-Type': 'application/json'}
         }).then(res => {
             this.setState({teams:[...res.data]})
-            console.log(res.data);
+            // console.log(res.data);
                 
           }).catch(err => {
           })
@@ -36,7 +36,7 @@ import Cookies from 'js-cookie'
             Cookies.set('teamID',''+team.id+'')     
             Cookies.set('teamName',''+team.name+'')
              this.props.history.push('/user/board')} }  >
-                <div className="card card-item">
+                <div className="card card-item" style={{cursor: "pointer"}}>
                     <div className="card-title">
                         <h5>{team.name}</h5>
                     </div>
@@ -48,7 +48,7 @@ import Cookies from 'js-cookie'
             <div>
                 <NavbarComponent />
                 <div className="dashboard">
-                    <h2 style={{color: "whitesmoke"}}>Teams</h2>
+                    <h2 style={{color: "whitesmoke", fontWeight: 700, fontSize: 2.5+"rem"}}>Teams</h2>
                     <div className="container cardList">
                         {card}
                     </div>
