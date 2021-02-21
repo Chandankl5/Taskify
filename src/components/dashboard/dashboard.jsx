@@ -49,6 +49,9 @@ import Cookies from 'js-cookie'
                 <NavbarComponent />
                 <div className="dashboard">
                     <h2 style={{color: "whitesmoke", fontWeight: 700, fontSize: 2.5+"rem"}}>Teams</h2>
+                    <div className="username">
+                        <h1 style={{color: "black", fontSize: 1.75+"rem", textAlign: 'center'}}>Welcome {Cookies.get('name')}</h1>
+                    </div>
                     <div className="container cardList">
                         {card}
                     </div>

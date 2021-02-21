@@ -20,6 +20,7 @@ class NavbarComponent extends React.Component {
     .then((response)=>{
       console.log(response)
       Cookies.remove('userID')
+      Cookies.remove('name')
       this.props.history.push('/logout')
     })
     .catch((err)=>{

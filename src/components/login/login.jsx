@@ -16,10 +16,18 @@ import React from 'react';
                     message: ''
                 }
             }
-        
+
             componentDidMount() {
-                console.log(this.props);
-                // this.setState({message: (this.props.history.location.state.message) ? this.props.history.location.state.message : ""})
+                if (Cookies.get('isRegister')) {
+                    this.setState({
+                        message: 
+                        <div class="alert alert-success alert-dismissible fade show">
+                            <button type="button" class="close" data-dismiss="alert">&times;</button>
+                            <strong>Successfully Registered</strong> 
+                        </div>
+                    })
+                }
+                Cookies.remove('isRegister')
             }
         
             submit(e) {
@@ -39,7 +47,8 @@ import React from 'react';
                     headers: {'Content-Type': 'application/json'},
                     data: formdata
                 }).then(response =>  {
-                    console.log(JSON.stringify(response.data));
+                    console.log(response.data);
+                    Cookies.set('name',response.data.name)
                     Cookies.set('userID',''+response.data.id+'')
                     this.props.history.push('/user/dashboard')
                 }).catch( err => {

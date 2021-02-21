@@ -30,3 +30,11 @@ h5 {
     font-weight: bold;
     color: whitesmoke;
 }
+
+.username {
+    margin: 10px 17%;
+    text-align: center;
+    padding: 2px 0;
+    background-color: white;
+    border-radius: 8px;
+}

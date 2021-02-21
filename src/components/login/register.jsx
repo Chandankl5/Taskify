@@ -3,6 +3,7 @@ import loginSVG from '../../login.svg';
 import axios from 'axios';
 import { Redirect } from 'react-router-dom';
 import "../login/style.module.css"
+import Cookies from 'js-cookie';
 
 export class Register extends React.Component {
     constructor(props) {
@@ -45,10 +46,8 @@ export class Register extends React.Component {
             }).then(response => {
                 // console.log(response);
                 this.props.setHasUserRegistered(true)
-                this.props.history.push('/login',{state: {"message": "Successfully Registered"}})
-                //     pathname: '/login',
-                //     state: { "detail": "You succesfully registered!!"}
-                // })
+                this.props.history.push('/login')
+                Cookies.set('isRegister', 'true')
             }).catch((error) => {
                 if(error.response.status === 500) {
                     this.setState({
