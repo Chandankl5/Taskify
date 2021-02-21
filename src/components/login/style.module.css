@@ -1,8 +1,8 @@
 .base-container {
 
     width: 100%;
-    height: 100vh;
-    /* height: 100%; */
+    /* height: 100vh; */
+    height: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -52,7 +52,7 @@ label {
     font-size: 20px;
 }
 
-input {
+.input_class {
     margin-top: 6px;
     min-width: 18em;
     height: 37px;
@@ -65,7 +65,7 @@ input {
     transition: all 250ms ease-in-out;
 }
                  
-input:focus {
+.input_class:focus {
     outline: none;
     box-shadow: 0 0 12px 0.8px #0e81ce96;
 }
