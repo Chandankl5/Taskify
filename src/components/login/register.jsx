@@ -117,14 +117,15 @@ export class Register extends React.Component {
     render() {
 
         return (
-            <div className="base-container" ref={ this.props.containerRef }>
-                <div className="content shadow p-3 bg-body rounded">
-                    {this.state.message}
+            <div className="base-container" ref={ this.props.containerRef } >
+                <div className="content shadow p-3 bg-body rounded" style={{marginTop:"40px",marginBottom:"40px"}}>
                     <div className="image">
                         <div className="header w3-center">Register</div>
                         <img src={ loginSVG } alt="ligin for Trackr"/>
                     </div>
                     <form className="form" onSubmit={(e) => this.submit(e)}>
+                    {this.state.message}
+
                         <div className="form-group">
                             <label htmlFor="username">Username</label>
                             <input type="text" className="input_class" placeholder="Username" onChange={e => this.setState({name: e.target.value.toString()})} required/>

@@ -61,13 +61,14 @@ import React from 'react';
          
                 return (
                     <div className="base-container" ref={ this.props.containerRef }>
-                        <div className="content" style={{marginTop:"5px"}}>
-                            {this.state.message}
+                        <div className="content" style={{marginTop:"5px"}} style={{marginTop:"40px",marginBottom:"50px"}}>
                             <div className="image">
                             <div className="header w3-center">Login</div>
                                 <img src={loginSVG} alt=""/>
                             </div>
                             <form className="form" onSubmit={(e) => this.submit(e)}>
+                            {this.state.message}
+
                                 <div className="form-group">
                                     <label htmlFor="username">Username</label>
                                     <input type="text" className="input_class" placeholder="Username" onChange={e => this.setState({name: e.target.value})} required/>

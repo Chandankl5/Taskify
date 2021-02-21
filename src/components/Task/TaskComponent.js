@@ -2,7 +2,6 @@ import React from 'react';
 import ModalComponent from '../Modal/ModalComponent.js'
 import {connect} from 'react-redux'
 import './style.css'
-
 class TaskViewComponent extends React.Component {
     constructor(props) {
         super(props)
@@ -14,6 +13,8 @@ class TaskViewComponent extends React.Component {
         let date=null,month=null
         const months = ["Jan", "Feb", "March", "April", "May", "June", "July", "Aug", "Sept", "Oct", "Nov", "Dec"];
         const {name,priority,plannedDate}=this.props.info
+        const modalID=name.split(" ").join("")
+        console.log(modalID)
         const colorMap={Major:"red" ,Normal:"orange" ,Minor:"green"}
         const color=colorMap[priority]
 
@@ -33,8 +34,8 @@ class TaskViewComponent extends React.Component {
         )  
 
      return (
-            <div>
-                <div className="task-list" data-toggle="modal" data-target={'#'+name}>
+            <div style={{cursor:"pointer"}}>
+                <div className="task-list" data-toggle="modal" data-target={'#'+modalID}>
                     <p >{name}</p>
 
                 <div className="row">
@@ -44,7 +45,7 @@ class TaskViewComponent extends React.Component {
                        </div>
                 </div>
                 
-                <ModalComponent listName={this.props.listName} info={this.props.info} key={this.props.info.name} />
+                <ModalComponent listName={this.props.listName} id={modalID} info={this.props.info} key={this.props.info.name} />
 
             </div>
         )

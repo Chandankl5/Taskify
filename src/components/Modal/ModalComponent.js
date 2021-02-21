@@ -73,7 +73,7 @@ class ModalComponent extends React.Component
 
         return(
             <div className="container">            
-            <div className="modal fade" id={name}>  
+            <div className="modal fade" id={this.props.id}>  
                 <div className="modal-dialog modal-lg">
                     <div className="modal-content" style={{ backgroundColor: "#F6F6F6" }}>
 
@@ -101,7 +101,7 @@ class ModalComponent extends React.Component
                                     <h3><label htmlFor="assignee">Assignee</label></h3>                        
                                     <AutoCompleteComponent id={id} taskName={name} assigneeName={assignee} members={this.props.members}/>
                                      </div>  
-                                      
+
                                      {/* <Attachments files={this.state.files} />   */}
                                 </div>
                                 <div className="col-md-4">
