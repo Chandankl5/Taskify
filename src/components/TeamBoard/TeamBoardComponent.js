@@ -6,6 +6,7 @@ import NavbarComponent from '../Navbar/NavbarComponent.js'
 import MenuComponent from '../MenuComponent.js'
 import './style.css'
 import Cookies from 'js-cookie'
+import mountain from '../../../public/mountain.jpg'
 
 import TeamDataBuilder from '../../Shared/TeamDataBuilder.js'
 
@@ -83,7 +84,7 @@ class TeamBoardComponent extends React.Component {
              
         return (
 
-            <div>
+            <div >
                 <NavbarComponent teamID={this.state.team_ID}/>
                 <MenuComponent userID={this.state.user_ID} teamID={this.state.team_ID} teamName={this.state.teamName}/>
             <div className="container-fluid">

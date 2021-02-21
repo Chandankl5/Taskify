@@ -17,7 +17,7 @@ class App extends Component {
 
   setHasUserRegistered=()=>{
     this.setState({hasUserRegistered:true})
-  }
+  } 
   setIsUserLoggedIn=()=>{
     this.setState({isUserLoggedIn:true})
   }

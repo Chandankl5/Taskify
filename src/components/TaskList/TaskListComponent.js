@@ -18,7 +18,7 @@ class TaskListComponent extends React.Component
 
     composeCard=()=>{
         this.setState({taskCompose:false})
-
+        
         axios({
             method:"POST",
             url:"https://flask-jwt-pro.herokuapp.com/createtask/"+this.props.teamID+"",

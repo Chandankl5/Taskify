@@ -1,6 +1,6 @@
 import axios from 'axios'
 import React from 'react'
-import {Redirect, withRouter} from 'react-router-dom'
+import {Redirect, withRouter,Link} from 'react-router-dom'
 import styles from './style.module.css'
 import Cookies from 'js-cookie'
 class NavbarComponent extends React.Component {
@@ -41,14 +41,14 @@ class NavbarComponent extends React.Component {
         </button>
 
         <div className="collapse navbar-collapse" id="collapsibleNavbar">
-          {/* <ul className="navbar-nav">
-            <li className="nav-item nav-list" style={list_style}>
+           <ul className="navbar-nav">
+            {/* <li className="nav-item nav-list" style={list_style}>
               <a className="nav-link" href="#"><i className="fa fa-home fa-lg" aria-hidden="true"></i></a>
-            </li>
+            </li>  */}
             <li className="nav-item nav-list" style={list_style}>
-              <a className="nav-link" href="#"><i className="fa fa-columns fa-lg" aria-hidden="true"></i></a>
+              <Link to='/user/dashboard' className="nav-link" href="#"><i className="fa fa-columns fa-lg" aria-hidden="true"></i></Link>
             </li>
-          </ul> */}
+          </ul> 
           <ul className="navbar-nav logo mr-auto navbar-dark "  >
             <a className="navbar-brand" href="#">Taskify</a>
           </ul>
