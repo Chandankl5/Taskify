@@ -28,7 +28,7 @@ class TeamBoardComponent extends React.Component {
             withCredentials:true
         })
         .then((response)=>{
-            // console.log(response.data.lists)
+            console.log(response.data.lists)
             const {id,description,lists,members}=response.data
             let Tasks=TeamDataBuilder(lists)
             this.props.setTeamBoardData({id:id,name:description,Tasks:Tasks,members:members })

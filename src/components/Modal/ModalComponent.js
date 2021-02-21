@@ -1,7 +1,7 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import axios from 'axios'
-
+import Cookies from 'js-cookie'
 import AutoCompleteComponent from './AutoCompleteComponent.js'
 import Description from './DescriptionComponent.js' 
 import Priority from './PriorityComponent.js'
@@ -69,8 +69,8 @@ class ModalComponent extends React.Component
 
     render()
     {
-        const {id,name,description,priority,status,plannedDate,isDescriptionContentSet,updateContent ,assignee}=this.props.info
-
+        const {id,name,description,priority,status,plannedDate,isDescriptionContentSet,updateContent ,assignee,reporter}=this.props.info
+        console.log(this.props.info)
         return(
             <div className="container">            
             <div className="modal fade" id={this.props.id}>  
@@ -94,7 +94,7 @@ class ModalComponent extends React.Component
 
                                     <div className="">
                                          <h3><label htmlFor="reporter">Reporter</label></h3>
-                                         <input type="text" className="form-control" readOnly value="Chandan" />
+                                         <input type="text" className="form-control" readOnly value={reporter} />
                                      </div>
 
                                     <div id="assignee">    

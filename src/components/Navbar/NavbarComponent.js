@@ -7,7 +7,6 @@ class NavbarComponent extends React.Component {
   constructor(props) {
     super(props)
     this.state={}
-    console.log(styles)
   }
 
   logout=()=>{

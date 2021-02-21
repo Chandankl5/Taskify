@@ -14,7 +14,6 @@ class TaskViewComponent extends React.Component {
         const months = ["Jan", "Feb", "March", "April", "May", "June", "July", "Aug", "Sept", "Oct", "Nov", "Dec"];
         const {name,priority,plannedDate}=this.props.info
         const modalID=name.split(" ").join("")
-        console.log(modalID)
         const colorMap={Major:"red" ,Normal:"orange" ,Minor:"green"}
         const color=colorMap[priority]
 

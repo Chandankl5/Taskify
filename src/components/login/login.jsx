@@ -47,7 +47,7 @@ import React from 'react';
                     headers: {'Content-Type': 'application/json'},
                     data: formdata
                 }).then(response =>  {
-                    console.log(response.data);
+                    // console.log(response.data);
                     Cookies.set('name',response.data.name)
                     Cookies.set('userID',''+response.data.id+'')
                     this.props.history.push('/user/dashboard')
@@ -70,7 +70,7 @@ import React from 'react';
          
                 return (
                     <div className="base-container" ref={ this.props.containerRef }>
-                        <div className="content" style={{marginTop:"5px"}} style={{marginTop:"40px",marginBottom:"50px"}}>
+                        <div className="content" style={{marginTop:"5px"}} style={{marginTop:"40px",marginBottom:"120px"}}>
                             <div className="image">
                             <div className="header w3-center">Login</div>
                                 <img src={loginSVG} alt=""/>

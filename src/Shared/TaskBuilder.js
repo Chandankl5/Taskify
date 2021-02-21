@@ -51,7 +51,7 @@ class TaskBuilder {
     }
 
     build(){
-        return new Task(this.id,this.name,this.description,this.priority,this.plannedDate,this.status,this.assignee)
+        return new Task(this.id,this.name,this.description,this.priority,this.plannedDate,this.status,this.assignee,this.reporter)
     }
 }
 

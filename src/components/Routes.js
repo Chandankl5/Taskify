@@ -17,7 +17,6 @@ class Routes extends Component{
      render(){
 
         const isUserLoggedIn=Cookies.get('userID')
-        console.log(isUserLoggedIn)
         return(
             <Switch>
             {

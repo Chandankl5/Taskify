@@ -7,7 +7,7 @@ import { setAssignee } from '../../Actions/ModalAction.js'
 
 const AutoCompleteComponent = (props) => {
 
-  const [selected, setSelected] = useState([]);
+  const [selected, setSelected] = useState(props.assigneeName);
   
   const dispatch=useDispatch()
 
@@ -46,7 +46,7 @@ const AutoCompleteComponent = (props) => {
       multiple
       onChange={ (e) => onAssigneeChange(e)}
       options={props.members}
-      placeholder="Choose a state..."
+      placeholder="Choose a member..."
       selected={selected}
       maxResults={1} 
       labelKey="name"
