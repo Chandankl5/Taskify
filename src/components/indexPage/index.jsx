@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import '../indexPage/styles.css';
+import '../indexPage/styles.module.css';
 import loginSVG from '../../login.svg';
 import { Link } from 'react-router-dom';
 
@@ -17,7 +17,7 @@ class HomePage extends Component {
                         <p>Taskify’s boards, lists, and cards enable teams to organize and prioritize projects in a fun, flexible, and rewarding way.</p>
                     </div>
                     <div className="right-container">
-                        <img src={ loginSVG } alt="task-management-demo-image"/>
+                        <img src={ loginSVG } alt="task-management-demo-page"/>
                     </div>
                 </div>
                 <Link className="btn btn-danger" to="/login">Get Started</Link>
